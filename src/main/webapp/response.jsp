@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:useBean id="mybean" scope="session" class="org.mypackage.hello.NameHandler" />
+        <jsp:useBean id="mybean" scope="session" class="org.mypackage.hello.PersonInfo" />
         <jsp:useBean id="clock" class="java.util.Date" />
         <jsp:setProperty name="mybean" property="name"/>
         <jsp:setProperty name="mybean" property="birthDate"/>
@@ -25,7 +25,7 @@
 
         <c:choose>
             <c:when test="${clock.hours < 12 && clock.hours > 0}"> Buenos días </c:when>
-            <c:when test="${clock.hours > 12 && clock.hours < 18}"> Buenos tardes </c:when>
+            <c:when test="${clock.hours > 12 && clock.hours < 18}"> Buenas tardes </c:when>
             <c:otherwise> Buenas noches </c:otherwise>
         </c:choose>
 
