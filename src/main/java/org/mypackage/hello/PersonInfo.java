@@ -4,20 +4,24 @@ import java.time.LocalDate;
 
 public class PersonInfo {
 
-    private String fullName;
-    private String dateOfBirth; // formato esperado: yyyy-MM-dd
-    private int years;
+    private String name;
+    private String birthDate;
+    private int age;
 
     public PersonInfo() {
-        this.fullName = "";
-        this.dateOfBirth = "";
-        this.years = 0;
+        this.name = "";
+        this.birthDate = "";
+        this.age = 0;
     }
 
-    private int calculateYears() {
+    private int calculateAge() {
+
+        if (birthDate == null || birthDate.isEmpty()) {
+            return 0;
+        }
 
         LocalDate today = LocalDate.now();
-        LocalDate birth = LocalDate.parse(dateOfBirth);
+        LocalDate birth = LocalDate.parse(birthDate);
 
         int result = today.getYear() - birth.getYear();
 
@@ -29,31 +33,33 @@ public class PersonInfo {
             }
         }
 
-        years = result;
-        return years;
+        age = result;
+        return age;
     }
 
-    public String getFullName() {
-        return fullName;
+    // 🔹 GETTERS Y SETTERS que tu JSP espera
+
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public int getYears() {
-        return calculateYears();
+    public int getAge() {
+        return calculateAge();
     }
 
-    public void setYears(int years) {
-        this.years = years;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
